@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "dist/app.js",
   "scripts": {
-    "start": "tsc --watch && node dist/app.js",
+    "start": "tsc --watch && node --unhandled-rejections=strict dist/app.js",
+    "debug": "export DEBUG=* && yarn start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts ."
   },
@@ -11,15 +12,26 @@
   "author": "loverofMush <tolujamal1@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/debug": "^4.1.7",
     "@types/express": "4.16.1",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^14.6.2",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^8.3.0",
     "typescript": "3.3.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "debug": "^4.3.2",
     "express": "4.16.4",
+    "express-winston": "^4.2.0",
     "helmet": "^4.6.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "winston": "^3.3.3"
+  },
+  "engines": {
+    "node": "~17"
   }
 }
