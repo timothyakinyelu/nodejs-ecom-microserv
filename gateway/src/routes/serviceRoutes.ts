@@ -9,7 +9,7 @@ class ServiceRoutes extends RouteConfig {
     /** Set all route configurations for the microservice */
     configureRoutes() {
         // set routes for the customer service
-        this.app.route('/customers')
+        this.app.route('/access-customers')
             .get((req: express.Request, res: express.Response) => {
                 res.status(200).send('Fetch customers');
             })
@@ -18,7 +18,7 @@ class ServiceRoutes extends RouteConfig {
             });
         
         // set routes for products service
-        this.app.route('/products')
+        this.app.route('/access-products')
             .get((req: express.Request, res: express.Response) => {
                 res.status(200).send('Fetch products');
             })
@@ -27,7 +27,7 @@ class ServiceRoutes extends RouteConfig {
             })
     
         // set routes for products service
-        this.app.route('/orders')
+        this.app.route('/access-orders')
             .get((req: express.Request, res: express.Response) => {
                 res.status(200).send('Fetch products');
             })
@@ -36,7 +36,7 @@ class ServiceRoutes extends RouteConfig {
             })
     
         // set routes for products service
-        this.app.route('/payments')
+        this.app.route('/access-payments')
             .get((req: express.Request, res: express.Response) => {
                 res.status(200).send('Fetch products');
             })
