@@ -16,6 +16,33 @@ class ServiceRoutes extends RouteConfig {
             .post((req: express.Request, res: express.Response) => {
                 res.status(200).send('Post to customers service')
             });
+        
+        // set routes for products service
+        this.app.route('/products')
+            .get((req: express.Request, res: express.Response) => {
+                res.status(200).send('Fetch products');
+            })
+            .get((req: express.Request, res: express.Response) => {
+                res.status(200).send("Post to products service")
+            })
+    
+        // set routes for products service
+        this.app.route('/orders')
+            .get((req: express.Request, res: express.Response) => {
+                res.status(200).send('Fetch products');
+            })
+            .get((req: express.Request, res: express.Response) => {
+                res.status(200).send("Post to orders service")
+            })
+    
+        // set routes for products service
+        this.app.route('/payments')
+            .get((req: express.Request, res: express.Response) => {
+                res.status(200).send('Fetch products');
+            })
+            .get((req: express.Request, res: express.Response) => {
+                res.status(200).send("Post to payments service")
+            })
         return this.app;
     }
 }
