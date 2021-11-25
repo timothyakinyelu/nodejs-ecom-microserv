@@ -1,5 +1,6 @@
 import { CRUD } from "../utils/crud";
 import CustomersDao from "../utils/dao";
+import { CreateCustomerDto } from "../utils/dto";
 
 /** Service to handle database communication
  * This pattern allows for separation of concern and lets the service focus on 
@@ -17,8 +18,8 @@ class AppService implements CRUD {
     /** Add a new Customer
      * @returns customer.id
      */
-    async create(resource: any) {
-        return CustomersDao.addCustomer(resource)
+    async create(resource: CreateCustomerDto) {
+        return CustomersDao.addCustomer(resource);
     };
 }
 
