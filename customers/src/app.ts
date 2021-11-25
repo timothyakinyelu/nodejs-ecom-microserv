@@ -28,6 +28,7 @@ if (!process.env.DEBUG) {
 }
 
 const app: express.Application = express();
+app.use(express.json());
 app.use(cors());
 // app.use(morgan('dev'));
 // app.use(helmet());
