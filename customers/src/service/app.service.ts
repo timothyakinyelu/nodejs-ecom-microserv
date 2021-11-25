@@ -12,7 +12,7 @@ class AppService implements CRUD {
      * @returns customers
      */
     async getAll(limit: number, page: number) {
-        return CustomersDao.getCustomers()
+        return CustomersDao.getCustomers(limit, page)
     };
 
     /** Add a new Customer
