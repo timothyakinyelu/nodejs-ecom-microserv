@@ -13,8 +13,10 @@ class OrdersDao {
     DBSchema = mongooseService.getMongoose().Schema;
     orderSchema = new this.DBSchema({
         _id: String,
-        name: String,
-        price: String,
+        customerId: String,
+        productId: String,
+        amount: String,
+        status: String
     }, { id: false });
     
     Order = mongooseService.getMongoose().model('Orders', this.orderSchema);

@@ -2,6 +2,8 @@
  * from the order database
  */
 export interface CreateOrderDto {
-    name: string;
-    price: string;
+    customerId: string;
+    productId: string;
+    amount: string;
+    status: string;
 }
