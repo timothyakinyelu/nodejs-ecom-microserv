@@ -27,9 +27,9 @@ class OrdersDao {
     
     /** insert new order into database
      * @params CreateOrderDto
-     * @returns order.id
+     * @returns order
      */
-    async addOrder(orderColumns: CreateOrderDto): Promise<string>  {
+    async addOrder(orderColumns: CreateOrderDto) {
         const orderId = shortid.generate();
         const order = new this.Order({
             _id: orderId,
@@ -37,7 +37,8 @@ class OrdersDao {
             permissionFlags: 1,
         });
         await order.save();
-        return orderId;
+        // send order data to payment service from here
+        return order;
     }
 
     /** get all orders from database
