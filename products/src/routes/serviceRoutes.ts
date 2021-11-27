@@ -10,7 +10,7 @@ class ServiceRoutes extends RouteConfig {
         super(app, 'ServiceRoutes');
     }
 
-    /** Set all route configurations for the customer service */
+    /** Set all route configurations for the product service */
     configureRoutes() {
         this.app.route('/products')
             .get(appController.fetchProducts)

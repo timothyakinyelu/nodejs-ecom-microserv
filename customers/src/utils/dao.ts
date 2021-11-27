@@ -27,9 +27,6 @@ class CustomersDao {
      * @returns customer.id
      */
     async addCustomer(customerColumns: CreateCustomerDto): Promise<string>  {
-        // customer.id = shortid.generate()
-        // this.customers.push(customer);
-
         const customerId = shortid.generate();
         const customer = new this.Customer({
             _id: customerId,
@@ -38,7 +35,6 @@ class CustomersDao {
         });
         await customer.save();
         return customerId;
-        // return customer.id;
     }
 
     /** get all customers from database
