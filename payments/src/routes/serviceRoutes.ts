@@ -14,7 +14,7 @@ class ServiceRoutes extends RouteConfig {
     configureRoutes() {
         this.app.route('/transactions')
             .get(appController.fetchTransactions)
-            .post(appController.receiveTransaction);
+            .post(appController.receiveOrder);
         return this.app;
     }
 }
