@@ -16,7 +16,7 @@ class AppService implements CRUD {
     };
 
     /** Add a new Order
-     * @returns order.id
+     * @returns order
      */
     async create(resource: CreateOrderDto) {
         return OrdersDao.addOrder(resource);

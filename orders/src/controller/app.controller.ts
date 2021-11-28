@@ -19,8 +19,8 @@ class AppController {
      * @returns orderId, status 201
      */
     async addOrder(req: express.Request, res: express.Response) {
-        const orderId = await appService.create(req.body);
-        res.status(201).send({ id: orderId });
+        const order = await appService.create(req.body);
+        res.status(201).send({ order: order });
     }
 }
 
