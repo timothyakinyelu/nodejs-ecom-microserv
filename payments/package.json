@@ -9,6 +9,8 @@
     },
     "license": "MIT",
     "dependencies": {
+        "@types/amqplib": "^0.8.2",
+        "amqplib": "^0.8.0",
         "cors": "^2.8.5",
         "debug": "^4.3.2",
         "express": "^4.17.1",
