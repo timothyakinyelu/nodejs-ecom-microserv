@@ -1,5 +1,6 @@
 import express from 'express';
 import debug from 'debug';
+import axios from 'axios';
 import appService from '../service/app.service';
 
 const log: debug.IDebugger = debug('app:app-controller');
@@ -20,6 +21,7 @@ class AppController {
      */
     async addOrder(req: express.Request, res: express.Response) {
         const order = await appService.create(req.body);
+        await axios.post('http://localhost:3304/transactions', order);
         res.status(201).send({ order: order });
     }
 }
