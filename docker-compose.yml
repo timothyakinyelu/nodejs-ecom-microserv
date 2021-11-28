@@ -5,8 +5,21 @@ services:
     volumes:
       - ./data:/data/db
     ports:
-      - "27017:27017"
+      - 27017:27017
+
   seed:
     build: ./mongodb
     depends_on:
       - mongo
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitMQ
+    environment:
+        RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+        RABBITMQ_DEFAULT_USER: "test"
+        RABBITMQ_DEFAULT_PASS: "test"
+        RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - 5672:5672
+      - 15672:15672
