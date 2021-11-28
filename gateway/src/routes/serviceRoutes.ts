@@ -1,4 +1,5 @@
 import express from 'express';
+import appController from '../controller/app.controller';
 import RouteConfig from "./common.routes";
 
 class ServiceRoutes extends RouteConfig {
@@ -8,41 +9,24 @@ class ServiceRoutes extends RouteConfig {
 
     /** Set all route configurations for the microservice */
     configureRoutes() {
-        // set routes for the customer service
+        // set routes for the customers service
         this.app.route('/access-customers')
-            .get((req: express.Request, res: express.Response) => {
-                res.status(200).send('Fetch customers');
-            })
-            .post((req: express.Request, res: express.Response) => {
-                res.status(200).send('Post to customers service')
-            });
+            .get(appController.getFromCustomers)
+            .post(appController.sendToCustomers);
         
         // set routes for products service
         this.app.route('/access-products')
-            .get((req: express.Request, res: express.Response) => {
-                res.status(200).send('Fetch products');
-            })
-            .get((req: express.Request, res: express.Response) => {
-                res.status(200).send("Post to products service")
-            })
+            .get(appController.getFromProducts)
+            .post(appController.sendToProducts)
     
-        // set routes for products service
+        // set routes for orders service
         this.app.route('/access-orders')
-            .get((req: express.Request, res: express.Response) => {
-                res.status(200).send('Fetch products');
-            })
-            .get((req: express.Request, res: express.Response) => {
-                res.status(200).send("Post to orders service")
-            })
+            .get(appController.getFromOrders)
+            .post(appController.sendToOrders)
     
-        // set routes for products service
+        // set routes for payments service
         this.app.route('/access-payments')
-            .get((req: express.Request, res: express.Response) => {
-                res.status(200).send('Fetch products');
-            })
-            .get((req: express.Request, res: express.Response) => {
-                res.status(200).send("Post to payments service")
-            })
+            .get(appController.getFromPayments)
         return this.app;
     }
 }
