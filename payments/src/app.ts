@@ -8,6 +8,7 @@ import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
 import RouteConfig from './routes/common.routes';
 import ServiceRoutes from './routes/serviceRoutes';
+import receiveMessageQueue from './utils/consumer';
 import { serverSettings } from './config';
 
 
@@ -49,5 +50,6 @@ server.listen(serverSettings.port, () => {
     routes.forEach((route: RouteConfig) => {
         debugLog(`Routes configured for ${route.getName()}`);
     });
-    console.log(runningMessage);
+    receiveMessageQueue();
+    debugLog(runningMessage);
 });
