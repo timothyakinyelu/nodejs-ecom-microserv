@@ -1,5 +1,40 @@
 version: '3'
 services:
+  customer:
+    build: ./customers
+    ports:
+      - 3301:3301
+    depends_on:
+      - seed
+  
+  gateway:
+    build: ./gateway
+    ports:
+      - 3300:3300
+    depends_on:
+      - seed
+
+  product:
+    build: ./products
+    ports:
+      - 3302:3302
+    depends_on:
+      - seed
+  
+  payment:
+    build: ./payments
+    ports:
+      - 3304:3304
+    depends_on:
+      - seed
+  
+  order:
+    build: ./orders
+    ports:
+      - 3303:3303
+    depends_on:
+      - seed
+
   mongo:
     image: mongo
     volumes:
