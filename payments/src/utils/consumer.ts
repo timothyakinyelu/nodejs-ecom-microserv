@@ -25,12 +25,9 @@ const receiveMessageQueue = () => {
                 durable: false
             });
 
-            log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
-
             channel.consume(queue, function (data: any) {
                 const transaction = JSON.parse(data.content.toString())
                 log(" [x] Received Transaction:", transaction);
-                //Socket Trigger All Clients
                 appController.addTransaction(transaction);
             }, {
                 noAck: true
@@ -40,4 +37,3 @@ const receiveMessageQueue = () => {
 };
 
 export default receiveMessageQueue;
-
