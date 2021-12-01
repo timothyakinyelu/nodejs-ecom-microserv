@@ -45,9 +45,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
     res.status(200).send(runningMessage)
 });
 
-const PORT = serverSettings.port;
-
-server.listen(PORT, () => {
+server.listen(serverSettings.port, () => {
     routes.forEach((route: RouteConfig) => {
         debugLog(`Routes configured for ${route.getName()}`);
     });
