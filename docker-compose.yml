@@ -1,6 +1,6 @@
 version: '3'
 services:
-  customer:
+  customer-api:
     build: ./customers
     ports:
       - 3301:3301
@@ -14,21 +14,21 @@ services:
     depends_on:
       - seed
 
-  product:
+  product-api:
     build: ./products
     ports:
       - 3302:3302
     depends_on:
       - seed
   
-  payment:
+  payment-api:
     build: ./payments
     ports:
       - 3304:3304
     depends_on:
       - seed
   
-  order:
+  order-api:
     build: ./orders
     ports:
       - 3303:3303
