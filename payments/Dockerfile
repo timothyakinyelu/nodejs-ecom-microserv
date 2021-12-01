@@ -1,20 +1,16 @@
 FROM node:latest
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-
 WORKDIR /home/node/app
 
 COPY package.json ./
 
-COPY yarn.lock ./
-
-USER node
-
 RUN yarn install
 
-COPY --chown=node:node . .
+ADD . /home/node/app
 
-EXPOSE 3301
+RUN yarn tsc
+
+EXPOSE 3304
 
 CMD [ "yarn", "start"]
  
